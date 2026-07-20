@@ -1,8 +1,9 @@
-import { Author } from "./models/Author";
+import { AuthorMenu } from "./menus/AuthorMenu";
 
-const author = new Author(
-  "Machado de Assis",
-  "Brasileiro"
-);
+async function main() {
+    const menu = new AuthorMenu();
 
-console.log(author);
+    await menu.create();
+}
+
+main();
