@@ -9,4 +9,8 @@ export class AuthorService {
         await this.repository.create(author);
     }
 
+    async list(): Promise<Author[]> {
+        return await this.repository.list();
+    }
+
 }

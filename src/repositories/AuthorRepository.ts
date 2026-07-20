@@ -16,4 +16,23 @@ export class AuthorRepository {
         ]);
     }
 
+    async list(): Promise<Author[]> {
+
+        const sql = `
+            SELECT id, name, nationality
+            FROM authors
+            ORDER BY id;
+        `;
+
+        const result = await pool.query(sql);
+
+        return result.rows.map(row =>
+            new Author(
+                row.name,
+                row.nationality,
+                row.id
+            )
+        );
+    }
+
 }

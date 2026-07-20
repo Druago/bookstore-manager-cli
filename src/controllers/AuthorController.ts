@@ -1,5 +1,5 @@
 import { Author } from "../models/Author";
-import { AuthorService } from "../services/AuthorServices";
+import { AuthorService } from "../services/AuthorService";
 
 export class AuthorController {
 
@@ -7,6 +7,10 @@ export class AuthorController {
 
     async create(author: Author) {
         await this.service.create(author);
+    }
+
+    async list(): Promise<Author[]> {
+        return await this.service.list();
     }
 
 }
