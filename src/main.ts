@@ -3,6 +3,7 @@ import readlineSync from "readline-sync";
 import { AuthorMenu } from "./menus/AuthorMenu";
 import { BookMenu } from "./menus/BookMenu";
 import { ClientMenu } from "./menus/ClientMenu";
+import { LoanMenu } from "./menus/LoanMenu";
 
 async function main() {
 
@@ -16,6 +17,7 @@ async function main() {
     console.log("1 - Autores");
     console.log("2 - Livros");
     console.log("3 - Clientes");
+    console.log("4 - Empréstimos");
     console.log("0 - Sair");
 
     option = readlineSync.questionInt("\nEscolha: ");
@@ -32,10 +34,15 @@ async function main() {
         await new BookMenu().showMenu();
         break;
 
-        case 3:
+      case 3:
 
-    await new ClientMenu().showMenu();
-    break;
+        await new ClientMenu().showMenu();
+        break;
+
+      case 4:
+
+        await new LoanMenu().showMenu();
+        break;
 
       case 0:
 

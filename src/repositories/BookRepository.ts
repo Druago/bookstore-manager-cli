@@ -127,4 +127,28 @@ export class BookRepository {
 
     }
 
+    async decreaseQuantity(id: number): Promise<void> {
+
+        const sql = `
+        UPDATE books
+        SET quantity = quantity - 1
+        WHERE id = $1;
+    `;
+
+        await pool.query(sql, [id]);
+
+    }
+
+    async increaseQuantity(id: number): Promise<void> {
+
+        const sql = `
+        UPDATE books
+        SET quantity = quantity + 1
+        WHERE id = $1;
+    `;
+
+        await pool.query(sql, [id]);
+
+    }
+
 }
