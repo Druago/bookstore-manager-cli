@@ -2,46 +2,53 @@ import readlineSync from "readline-sync";
 
 import { AuthorMenu } from "./menus/AuthorMenu";
 import { BookMenu } from "./menus/BookMenu";
+import { ClientMenu } from "./menus/ClientMenu";
 
 async function main() {
 
-    let option: number;
+  let option: number;
 
-    do {
+  do {
 
-        console.log("\n=================================");
-        console.log("      BOOKSTORE MANAGER CLI");
-        console.log("=================================");
-        console.log("1 - Autores");
-        console.log("2 - Livros");
-        console.log("0 - Sair");
+    console.log("\n=================================");
+    console.log("      BOOKSTORE MANAGER CLI");
+    console.log("=================================");
+    console.log("1 - Autores");
+    console.log("2 - Livros");
+    console.log("3 - Clientes");
+    console.log("0 - Sair");
 
-        option = readlineSync.questionInt("\nEscolha: ");
+    option = readlineSync.questionInt("\nEscolha: ");
 
-        switch (option) {
+    switch (option) {
 
-            case 1:
+      case 1:
 
-                await new AuthorMenu().showMenu();
-                break;
+        await new AuthorMenu().showMenu();
+        break;
 
-            case 2:
+      case 2:
 
-                await new BookMenu().showMenu();
-                break;
+        await new BookMenu().showMenu();
+        break;
 
-            case 0:
+        case 3:
 
-                console.log("\nEncerrando sistema...");
-                break;
+    await new ClientMenu().showMenu();
+    break;
 
-            default:
+      case 0:
 
-                console.log("\nOpção inválida.");
+        console.log("\nEncerrando sistema...");
+        break;
 
-        }
+      default:
 
-    } while (option !== 0);
+        console.log("\nOpção inválida.");
+
+    }
+
+  } while (option !== 0);
 
 }
 
